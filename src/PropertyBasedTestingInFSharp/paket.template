@@ -1,0 +1,25 @@
+type project
+title
+    PropertyBasedTestingInFSharp
+owners
+    Jeremy Clough
+authors 
+    Jeremy Clough
+projectUrl
+    http://github.com/talesin/PropertyBasedTestingInFSharp
+iconUrl
+    https://raw.githubusercontent.com/talesin/PropertyBasedTestingInFSharp/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/talesin/PropertyBasedTestingInFSharp/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    
+summary
+    A short example of property based testing using F#
+description
+    Description not set
+
+

@@ -1,1 +1,1 @@
-# Property Based Testing in F#
+# Property Based Testing in FSharp

@@ -1,9 +1,9 @@
-source https://nuget.org/api/v2
+source https://api.nuget.org/v3/index.json
 
-nuget FSharp.Core redirects: force
+nuget FSharp.Core >= 4.0 redirects: force
 
 group Build
-  source https://nuget.org/api/v2
+  source https://api.nuget.org/v3/index.json
   
   nuget SourceLink.Fake
   nuget FAKE
@@ -12,7 +12,7 @@ group Build
   github fsharp/FAKE modules/Octokit/Octokit.fsx
 
 group Test
-  source https://nuget.org/api/v2
-  
-  nuget NUnit ~> 2
-  nuget NUnit.Runners ~> 2
+  source https://api.nuget.org/v3/index.json
+
+  nuget FsCheck.NUnit
+  nuget NUnit.Runners

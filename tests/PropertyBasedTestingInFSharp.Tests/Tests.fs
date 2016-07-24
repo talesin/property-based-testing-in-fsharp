@@ -61,6 +61,14 @@ module Diamonds =
         |> List.toArray
         |> String.concat "\n"
 
+    let diamond6 (ch:char) =
+        let n = charNum ch
+        let pad i = String.replicate i " "
+        [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
+        |> List.map (fun x -> sprintf "%s%c" (pad (n - x)) (char (int 'A' + x)))
+        |> List.toArray
+        |> String.concat "\n"
+
 
 module DiamondTests =
     open Diamonds
@@ -133,21 +141,19 @@ module DiamondTests =
 
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 1`` (ch:char) =
-        diamondTest diamond1 ch
+    let ``Diamond 1`` (ch:char) = diamondTest diamond1
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 2`` (ch:char) =
-        diamondTest diamond2 ch
+    let ``Diamond 2`` (ch:char) = diamondTest diamond2
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 3`` (ch:char) =
-        diamondTest diamond3 ch
+    let ``Diamond 3`` (ch:char) = diamondTest diamond3
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 4`` (ch:char) =
-        diamondTest diamond4 ch
+    let ``Diamond 4`` (ch:char) = diamondTest diamond4
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 5`` (ch:char) =
-        diamondTest diamond5 ch
+    let ``Diamond 5`` (ch:char) = diamondTest diamond5
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 6`` (ch:char) = diamondTest diamond6

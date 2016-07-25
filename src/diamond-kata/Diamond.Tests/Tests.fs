@@ -1,4 +1,4 @@
-namespace PropertyBasedTestingInFSharp.Tests
+namespace Diamond.Tests
 
 open NUnit.Framework
 

@@ -1,7 +1,7 @@
 ﻿namespace System
 open System.Reflection
 
-[<assembly: AssemblyTitleAttribute("PropertyBasedTestingInFSharp")>]
+[<assembly: AssemblyTitleAttribute("Diamond.Tests")>]
 [<assembly: AssemblyProductAttribute("PropertyBasedTestingInFSharp")>]
 [<assembly: AssemblyDescriptionAttribute("A short example of property based testing using F#")>]
 [<assembly: AssemblyVersionAttribute("1.0")>]

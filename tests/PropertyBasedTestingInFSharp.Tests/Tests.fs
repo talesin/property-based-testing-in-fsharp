@@ -34,6 +34,10 @@ module Diamonds =
 
     let charNum ch = int ch - int 'A'
 
+    let numChar x = char <| int 'A' + x
+
+    let pad = String.replicate
+
     let diamond1 (ch:char) =
         ""
 
@@ -47,25 +51,34 @@ module Diamonds =
         |> String.concat "\n"
 
     let diamond4 (ch:char) =
-        let n = int ch - int 'A'
+        let n = charNum ch
         [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x -> string (char (int 'A' + x)))
+        |> List.map (fun x -> string <| numChar x)
         |> List.toArray
         |> String.concat "\n"
 
     let diamond5 (ch:char) =
         let n = charNum ch
-        let pad i = String.replicate i " "
         [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x -> sprintf "%s%c" (pad (n - x)) (char (int 'A' + x)))
+        |> List.map (fun x -> sprintf "%s%c" (pad (n - x) " ") (numChar x))
         |> List.toArray
         |> String.concat "\n"
 
     let diamond6 (ch:char) =
         let n = charNum ch
-        let pad i = String.replicate i " "
         [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x -> sprintf "%s%c" (pad (n - x)) (char (int 'A' + x)))
+        |> List.map (fun x -> (pad (n - x) " ") + (pad ((x+1)*2-1) (string (numChar x))))
+        |> List.toArray
+        |> String.concat "\n"
+
+    let diamond7 (ch:char) =
+        let n = charNum ch
+        [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
+        |> List.map (fun x ->
+            if x = 0 then
+                sprintf "%s%c" (pad (n - x) " ") (numChar x)
+            else
+                sprintf "%s%c%s%c" (pad (n - x) " ") (numChar x) (pad ((x)*2-1) " ") (numChar x))
         |> List.toArray
         |> String.concat "\n"
 
@@ -113,6 +126,11 @@ module DiamondTests =
            |> Array.mapi (fun i s -> s.LastIndexOf(lookup.[i]) = int lookup.[i] - int 'A' + n - 1)
            |> Array.forall id)
 
+       .&. "The first and last lines should contain one letter, all others two" @| (
+           lines
+           |> Array.mapi (fun i s -> (s |> String.filter (fun c -> c <> ' ') |> String.length) = if (i = 0 || i = lookup.Length-1) then 1 else 2)
+           |> Array.forall id)
+
 
 
     [<Property(MaxTest=1)>]
@@ -157,3 +175,6 @@ module DiamondTests =
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
     let ``Diamond 6`` (ch:char) = diamondTest diamond6
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 7`` (ch:char) = diamondTest diamond7

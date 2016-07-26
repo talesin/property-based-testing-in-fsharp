@@ -28,63 +28,8 @@ open FsCheck.NUnit
 //   A
 
 
-
-module Diamonds =
-    let size (ch:char) = int ch - int 'A' + 1
-
-    let charNum ch = int ch - int 'A'
-
-    let numChar x = char <| int 'A' + x
-
-    let pad = String.replicate
-
-    let diamond1 (ch:char) =
-        ""
-
-    let diamond2 (ch:char) =
-        string ch
-
-    let diamond3 (ch:char) =
-        [ 0 .. size ch * 2 - 2 ]
-        |> List.map (fun x -> string x)
-        |> List.toArray
-        |> String.concat "\n"
-
-    let diamond4 (ch:char) =
-        let n = charNum ch
-        [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x -> string <| numChar x)
-        |> List.toArray
-        |> String.concat "\n"
-
-    let diamond5 (ch:char) =
-        let n = charNum ch
-        [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x -> sprintf "%s%c" (pad (n - x) " ") (numChar x))
-        |> List.toArray
-        |> String.concat "\n"
-
-    let diamond6 (ch:char) =
-        let n = charNum ch
-        [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x -> (pad (n - x) " ") + (pad ((x+1)*2-1) (string (numChar x))))
-        |> List.toArray
-        |> String.concat "\n"
-
-    let diamond7 (ch:char) =
-        let n = charNum ch
-        [ 0 .. n] @ [ n - 1 .. -1 .. 0 ]
-        |> List.map (fun x ->
-            if x = 0 then
-                sprintf "%s%c" (pad (n - x) " ") (numChar x)
-            else
-                sprintf "%s%c%s%c" (pad (n - x) " ") (numChar x) (pad ((x)*2-1) " ") (numChar x))
-        |> List.toArray
-        |> String.concat "\n"
-
-
 module DiamondTests =
-    open Diamonds
+    open Diamond.FSharp.Diamonds
 
     type Letter =
         static member Letter () =
@@ -159,22 +104,44 @@ module DiamondTests =
 
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 1`` (ch:char) = diamondTest diamond1
+    let ``Diamond 1 (FSharp)`` (ch:char) = diamondTest diamond1
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 2`` (ch:char) = diamondTest diamond2
+    let ``Diamond 2 (FSharp)`` (ch:char) = diamondTest diamond2
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 3`` (ch:char) = diamondTest diamond3
+    let ``Diamond 3 (FSharp)`` (ch:char) = diamondTest diamond3
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 4`` (ch:char) = diamondTest diamond4
+    let ``Diamond 4 (FSharp)`` (ch:char) = diamondTest diamond4
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 5`` (ch:char) = diamondTest diamond5
+    let ``Diamond 5 (FSharp)`` (ch:char) = diamondTest diamond5
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 6`` (ch:char) = diamondTest diamond6
+    let ``Diamond 6 (FSharp)`` (ch:char) = diamondTest diamond6
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 7`` (ch:char) = diamondTest diamond7
+    let ``Diamond 7 (FSharp)`` (ch:char) = diamondTest diamond7
+
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 1 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond1
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 2 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond2
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 3 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond3
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 4 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond4
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 5 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond5
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 6 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond6
+
+    [<Property(Arbitrary=[| typeof<Letter> |])>]
+    let ``Diamond 7 (CSharp)`` (ch:char) = diamondTest Diamond.CSharp.Diamonds.Diamond7

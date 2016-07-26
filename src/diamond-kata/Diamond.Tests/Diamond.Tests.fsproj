@@ -8,7 +8,7 @@
     <ProjectGuid>85d11fbe-ed11-4950-8cf7-6dbc7c046575</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>PropertyBasedTestingInFSharp.Tests</RootNamespace>
-    <AssemblyName>PropertyBasedTestingInFSharp.Tests</AssemblyName>
+    <AssemblyName>Diamond.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
     <Name>PropertyBasedTestingInFSharp.Tests</Name>

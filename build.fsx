@@ -148,7 +148,8 @@ Target "RunTests" (fun _ ->
         { p with
             DisableShadowCopy = true
             TimeOut = TimeSpan.FromMinutes 20.
-            OutputFile = "TestResults.xml" })
+            OutputFile = "TestResults.xml"
+            Domain = NUnitDomainModel.NoDomainModel })
 )
 
 #if MONO

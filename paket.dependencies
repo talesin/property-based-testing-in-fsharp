@@ -1,18 +1,10 @@
 source https://api.nuget.org/v3/index.json
 
+github fsharp/FAKE modules/Octokit/Octokit.fsx
+nuget FAKE
 nuget FSharp.Core >= 4.0 redirects: force
-
-group Build
-  source https://api.nuget.org/v3/index.json
-  
-  nuget SourceLink.Fake
-  nuget FAKE
-  nuget FSharp.Formatting
-
-  github fsharp/FAKE modules/Octokit/Octokit.fsx
-
-group Test
-  source https://api.nuget.org/v3/index.json
-
-  nuget FsCheck.NUnit
-  nuget NUnit.Runners
+nuget FSharp.Formatting
+nuget FsCheck.NUnit
+nuget NUnit 2.6.4 framework: >= net451
+nuget NUnit.Runners
+nuget SourceLink.Fake

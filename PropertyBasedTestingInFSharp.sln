@@ -20,7 +20,7 @@ Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Diamond.Tests", "src\diamon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondCS", "src\diamond-kata\DiamondCS\DiamondCS.csproj", "{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}"
 EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Examples", "src\Examples\Examples.fsproj", "{3C9237E3-27D4-4BB3-8781-0E7138655245}"
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Eg", "src\Eg\Eg.fsproj", "{5EE51D7C-2C56-4424-BB41-462FF60BE920}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +36,10 @@ Global
 		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C9237E3-27D4-4BB3-8781-0E7138655245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C9237E3-27D4-4BB3-8781-0E7138655245}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C9237E3-27D4-4BB3-8781-0E7138655245}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C9237E3-27D4-4BB3-8781-0E7138655245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,0 @@
-FSharp.Core
-FsCheck.NUnit
-NUnit
-NUnit.Runners
-xunit
-xunit.assert
-xunit.runners

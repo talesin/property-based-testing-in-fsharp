@@ -1,4 +1,4 @@
-FSharp.Core
+FSharp.Core copy_local: true
 FsCheck.NUnit
 NUnit
 NUnit.Runners

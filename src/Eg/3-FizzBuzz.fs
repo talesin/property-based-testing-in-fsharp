@@ -14,7 +14,7 @@ module ``3 FizzBuzz`` =
         else if x % 5 = 0 then          "Buzz"
         else                            string x   
 
-    module ``1 FizzBuzz Unit Tests`` =
+    module ``3-1 FizzBuzz Unit Tests`` =
 
         [<Test>]
         let ``fizzOrBuzz should return FizzBuzz when given 15``  () =
@@ -37,7 +37,7 @@ module ``3 FizzBuzz`` =
             Assert.True("7" = result)
 
 
-    module ``2 FizzBuzz Property Tests`` =
+    module ``3-2 FizzBuzz Property Tests`` =
 
         [<Property>]
         let ``fizzOrBuzz properties should hold true`` (x:int) =
@@ -67,7 +67,7 @@ module ``3 FizzBuzz`` =
                 && result = string x)
 
 
-    module ``3 FizzBuzz Property Tests With Conditionals`` =
+    module ``3-3 FizzBuzz Property Tests With Conditionals`` =
 
         [<Property>]
         let ``FizzBuzz should be returned for any number divisible by both 3 and 5`` (x:int) =
@@ -94,7 +94,7 @@ module ``3 FizzBuzz`` =
             (x % 5 <> 0 && x % 3 <> 0) ==> (result = string x)
 
 
-    module ``4 FizzBuzz Property Tests With Generator`` =
+    module ``3-4 FizzBuzz Property Tests With Generator`` =
 
         type FizzBuzzNumbers =
             static member Numbers () =

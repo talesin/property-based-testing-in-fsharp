@@ -8,7 +8,7 @@ open FsCheck.NUnit
 module ``1 Unit Tests vs Property Tests`` =
 
 
-    module ``1 Sample`` =
+    module ``1-1 Sample`` =
         let increment = (+) 1
 
         [<Test>]
@@ -23,7 +23,7 @@ module ``1 Unit Tests vs Property Tests`` =
             "The different between x and the expected result should be 1" @| (result - x = 1)
 
        
-    module ``2 Reversing`` =
+    module ``1-2 Reversing`` =
         let reverse = List.rev
 
 

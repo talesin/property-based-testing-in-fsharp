@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{63297B98-5CED-492C-A5B7-A5B4F73CF142}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
@@ -14,13 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{BF60
 		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "diamond-kata", "diamond-kata", "{9E3244B9-654D-4E76-AD3B-D66FC7E0C12B}"
-EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Diamond.Tests", "src\diamond-kata\Diamond.Tests\Diamond.Tests.fsproj", "{85D11FBE-ED11-4950-8CF7-6DBC7C046575}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamondCS", "src\diamond-kata\DiamondCS\DiamondCS.csproj", "{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}"
-EndProject
-Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Eg", "src\Eg\Eg.fsproj", "{5EE51D7C-2C56-4424-BB41-462FF60BE920}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Eg", "src\Eg\Eg.fsproj", "{5EE51D7C-2C56-4424-BB41-462FF60BE920}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,14 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{85D11FBE-ED11-4950-8CF7-6DBC7C046575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85D11FBE-ED11-4950-8CF7-6DBC7C046575}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85D11FBE-ED11-4950-8CF7-6DBC7C046575}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85D11FBE-ED11-4950-8CF7-6DBC7C046575}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EE51D7C-2C56-4424-BB41-462FF60BE920}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,9 +30,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{85D11FBE-ED11-4950-8CF7-6DBC7C046575} = {9E3244B9-654D-4E76-AD3B-D66FC7E0C12B}
-		{3378731F-902D-4DFB-BDCA-B18BE3B8A8CB} = {9E3244B9-654D-4E76-AD3B-D66FC7E0C12B}
 	EndGlobalSection
 EndGlobal

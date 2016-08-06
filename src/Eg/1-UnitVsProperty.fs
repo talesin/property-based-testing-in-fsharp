@@ -1,13 +1,15 @@
 ﻿namespace Examples
 
+// 'open' in F# is the same as 'using' in C#
 open NUnit.Framework
 
 open FsCheck
 open FsCheck.NUnit
 
+// A module can be thought of as a static class in C#
 module ``1 Unit Tests vs Property Tests`` =
 
-
+    // Double backticks allow you to use any character when naming an item
     module ``1-1 Sample`` =
         let increment = (+) 1
 

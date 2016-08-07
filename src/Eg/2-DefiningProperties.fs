@@ -1,5 +1,7 @@
 ﻿namespace Examples
 
+open System
+
 open NUnit.Framework
 
 open FsCheck
@@ -29,11 +31,27 @@ module ``2 Defining Properties`` =
 
             .&.
 
-            // invariant property
+            // invariant property - but we want to try and avoid reimplementing sorting code
             "Each element in a sorted list should be greater than or equal to the last" @| (
                 sorted
                 |> List.pairwise
                 |> List.forall (fun (a, b) -> b >= a))
+
+            .&.
+
+            // invariant property
+            "The smallest element in the list should be first" @| (
+                let head = list @ [Int32.MinValue] |> sort |> List.head
+
+                head = Int32.MinValue)
+
+            .&.
+
+            // invariant property
+            "The largest element in the list should be last" @| (
+                let last = Int32.MaxValue :: list |> sort |> List.last
+
+                last = Int32.MaxValue)
 
             .&.
 

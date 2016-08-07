@@ -56,6 +56,7 @@
     <Compile Include="1-UnitVsProperty.fs" />
     <Compile Include="2-DefiningProperties.fs" />
     <Compile Include="99-DiamondKata.fs" />
+    <Compile Include="3-Generators.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
   <Choose>

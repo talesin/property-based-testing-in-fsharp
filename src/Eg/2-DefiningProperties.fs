@@ -7,6 +7,8 @@ open NUnit.Framework
 open FsCheck
 open FsCheck.NUnit
 
+// TODO move completed code to branch and leave behind stub
+
 module ``2 Defining Properties`` =
 
     module ``2-1 Sorting a list`` =

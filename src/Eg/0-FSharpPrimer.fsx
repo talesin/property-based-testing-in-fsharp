@@ -147,6 +147,26 @@ let appendedList  = [ 1; 2; 3 ] @ [ 4; 5; 6 ]
 [ 1 .. 10 ]
 |> List.rev
 
+// List.contains returns true when the list contains the specified item
+[ 1 .. 10 ]
+|> List.contains 3
+
+// List.sort sorts the list using the default comparer
+[ 10 .. -1 .. 0 ]
+|> List.sort
+
+// List.sortBy sorts the list by applying the given key projection before using the default comparer
+[ -5 .. 5 ]
+|> List.sortBy abs
+
+// List.forall returns true if each element in the list matches the predicate
+[ 1 .. 10 ]
+|> List.forall (fun x -> x <= 10)
+
+// List.pairwise will convert your list into another list of tuples each containing itself and it's predecessor
+[ 1 .. 10 ]
+|> List.pairwise
+
 // List.reduce will successively apply a function to each item in the list, passing in the accumulated value with
 // the list item on each iteration result in a value of the same type as the list
 [ 1 .. 10 ]
@@ -158,14 +178,5 @@ let appendedList  = [ 1; 2; 3 ] @ [ 4; 5; 6 ]
 [ 1 .. 10 ]
 |> List.fold (fun state x -> sprintf "%s %d" state x) "Numbers:"
 
-// List.pairwise will convert your list into another list of tuples each containing itself and it's predecessor
-[ 1 .. 10 ]
-|> List.pairwise
 
-// List.forall returns true if each element in the list matches the predicate
-[ 1 .. 10 ]
-|> List.forall (fun x -> x <= 10)
 
-// List.contains returns true when the list contains the specified item
-[ 1 .. 10 ]
-|> List.contains 3

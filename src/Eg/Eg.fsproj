@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />
+    <None Include="README.md" />
     <None Include="app.config" />
     <Compile Include="FsCheckAddin.fs">
       <Paket>True</Paket>
@@ -55,8 +56,11 @@
     <Compile Include="0-FSharpPrimer.fsx" />
     <Compile Include="1-UnitVsProperty.fs" />
     <Compile Include="2-DefiningProperties.fs" />
+    <None Include="3a-Generators.fsx" />
+    <Compile Include="3b-Generators.fs" />
+    <Compile Include="4-Shrinkers.fs" />
+    <Compile Include="5-MoreRealistically.fs" />
     <Compile Include="99-DiamondKata.fs" />
-    <Compile Include="3-Generators.fs" />
   </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
   <Choose>

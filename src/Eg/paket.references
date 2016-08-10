@@ -2,3 +2,8 @@ FSharp.Core copy_local: true
 FsCheck.NUnit
 NUnit
 NUnit.Runners
+Foq
+Owin
+Microsoft.Owin
+log4net
+StatsdCsharpClient

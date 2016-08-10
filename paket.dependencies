@@ -9,6 +9,8 @@ nuget FsCheck.Xunit
 nuget NUnit 2.6.4 framework: >= net45
 nuget NUnit.Runners
 nuget SourceLink.Fake
-nuget xunit
-nuget xunit.assert
-nuget xunit.runners
+nuget Foq
+nuget Owin
+nuget Microsoft.Owin
+nuget StatsdCsharpClient
+nuget log4net

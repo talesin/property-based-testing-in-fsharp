@@ -37,7 +37,7 @@ module ``1 Unit Tests vs Property Tests`` =
         // Let's pretend this is our specialized implementation of reverse
         let reverse = List.rev
 
-        // Again, your big standard unit test - testing the one specific case
+        // Again, your bog standard unit test - testing the one specific case
         [<Test>]
         let ``Reversing a specific list should return that list in reverse`` () =
             let result = reverse [1; 2; 3; 4; 5]

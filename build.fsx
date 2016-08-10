@@ -36,7 +36,7 @@ let summary = "A short example of property based testing using F#"
 
 // Longer description of the project
 // (used as a description for NuGet package; line breaks are automatically cleaned up)
-let description = "Project has no description; update build.fsx"
+let description = summary
 
 // List of author names (for NuGet package)
 let authors = [ "Jeremy Clough" ]
@@ -56,7 +56,7 @@ let gitOwner = "talesin"
 let gitHome = "https://github.com/" + gitOwner
 
 // The name of the project on GitHub
-let gitName = "PropertyBasedTestingInFSharp"
+let gitName = "property-based-testing-in-fsharp"
 
 // The url for the raw files hosted
 let gitRaw = environVarOrDefault "gitRaw" "https://raw.github.com/talesin"

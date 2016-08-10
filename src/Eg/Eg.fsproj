@@ -6,7 +6,7 @@
     <ProjectGuid>{5EE51D7C-2C56-4424-BB41-462FF60BE920}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Eg</RootNamespace>
-    <AssemblyName>Eg</AssemblyName>
+    <AssemblyName>Eg.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -37,47 +37,7 @@
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '10.0' OR '$(VisualStudioVersion)' == '11.0'">
     <FSharpTargetsPath>$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets</FSharpTargetsPath>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="net40\Foq.Usage.fsx">
-      <Paket>True</Paket>
-    </Content>
-    <Content Include="net45\Foq.Usage.fsx">
-      <Paket>True</Paket>
-    </Content>
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="nunit.core.interfaces">
-      <HintPath>..\..\packages\NUnit.Runners\tools\lib\nunit.core.interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.util">
-      <HintPath>..\..\packages\NUnit.Runners\tools\lib\nunit.util.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="paket.references" />
-    <None Include="README.md" />
-    <None Include="app.config" />
-    <Compile Include="FsCheckAddin.fs">
-      <Paket>True</Paket>
-    </Compile>
-    <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="0-FSharpPrimer.fsx" />
-    <Compile Include="1-UnitVsProperty.fs" />
-    <Compile Include="2-DefiningProperties.fs" />
-    <None Include="3a-Generators.fsx" />
-    <Compile Include="3b-UsingGenerators.fs" />
-    <Compile Include="4-MoreRealistically.fs" />
-    <Compile Include="99-DiamondKata.fs" />
-  </ItemGroup>
   <Import Project="$(FSharpTargetsPath)" />
-  <ItemGroup>
-    <ProjectReference Include="..\CSharpDomain\CSharpDomain.csproj">
-      <Project>{A03950E2-D59B-43D8-AA81-82CFF0F58C2F}</Project>
-      <Name>CSharpDomain</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And $(TargetFrameworkVersion) == 'v4.0'">
       <ItemGroup>
@@ -295,13 +255,6 @@
       </ItemGroup>
     </When>
   </Choose>
-  <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-      <Paket>True</Paket>
-    </Reference>
-  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
       <ItemGroup>
@@ -991,4 +944,47 @@
       </ItemGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <Content Include="net40\Foq.Usage.fsx">
+      <Paket>True</Paket>
+    </Content>
+    <Content Include="net45\Foq.Usage.fsx">
+      <Paket>True</Paket>
+    </Content>
+    <None Include="paket.references" />
+    <None Include="README.md" />
+    <None Include="app.config" />
+    <Compile Include="FsCheckAddin.fs">
+      <Paket>True</Paket>
+    </Compile>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="0-FSharpPrimer.fsx" />
+    <Compile Include="1-UnitVsProperty.fs" />
+    <Compile Include="2-DefiningProperties.fs" />
+    <None Include="3a-Generators.fsx" />
+    <Compile Include="3b-UsingGenerators.fs" />
+    <Compile Include="4-MoreRealistically.fs" />
+    <Compile Include="99-DiamondKata.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\..\packages\NUnit.Runners\tools\lib\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\..\packages\NUnit.Runners\tools\lib\nunit.util.dll</HintPath>
+    </Reference>
+    <ProjectReference Include="..\CSharpDomain\CSharpDomain.csproj">
+      <Project>{A03950E2-D59B-43D8-AA81-82CFF0F58C2F}</Project>
+      <Name>CSharpDomain</Name>
+    </ProjectReference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\packages\NUnit\lib\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+      <Paket>True</Paket>
+    </Reference>
+  </ItemGroup>
 </Project>

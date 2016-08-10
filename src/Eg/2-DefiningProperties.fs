@@ -12,6 +12,8 @@ open FsCheck.NUnit
 module ``2 Defining Properties`` =
 
     module ``2-1 Sorting a list`` =
+
+        // Iterations of `sort`
         //let sort list = []
         //let sort list = list
         //let sort (list:int list) = List.replicate list.Length 1
@@ -25,6 +27,7 @@ module ``2 Defining Properties`` =
             "A sorted list should contain the same number of elements as the original" @| (
                 List.length list = List.length sorted)
 
+            // You can `AND` or `OR` properties in a single test using .&. or .|. 
             .&.
 
             // idempotent property
@@ -64,6 +67,8 @@ module ``2 Defining Properties`` =
 
 
     module ``2-2 Reversing a list`` =
+        
+        // Iterations of `reverse`
         //let reverse list = []
         //let reverse list = list
         //let reverse (list:int list) = List.replicate list.Length 1

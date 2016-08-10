@@ -9,8 +9,9 @@ open FsCheck.NUnit
 
 // TODO move completed code to branch and leave behind stub
 
-// Another element of property based testing is the need to generate specifc data for your tests.
-module ``3 Generators`` =
+// Another element of property based testing is the need to generate specifc data for your tests. Generators allow you
+// to do that for existing types but also your custom types
+module ``3 Using Generators`` =
 
     // F# helpfully turns the out parameters into tuple return values.
     // Here we use pattern matching on the output to either return the converted interger or a default of 0
@@ -88,6 +89,8 @@ module ``3 Generators`` =
 
             last = "999.999.999")
 
+
+    // test oracle - comparing to an existing implementation
     [<Property(Verbose=true, Arbitrary=[| typeof<NumericStringList> |])>]
     let ``The sort of major version should be the same as a numerical sort`` (list:string list) =
         let sorted = list |> List.map (sprintf "%s.0.0") |> sort

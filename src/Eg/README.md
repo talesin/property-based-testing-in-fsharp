@@ -11,4 +11,6 @@
 TODO
 - Flesh out this document
 - Separate stub and code for exercises
-- Finish generators, shrinkers and C# examples
+- fsx to run tests for test runners that don't pick up the tests
+- Finish generators and C# examples
+- Add links to resources

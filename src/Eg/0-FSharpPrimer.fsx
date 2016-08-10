@@ -178,5 +178,18 @@ let appendedList  = [ 1; 2; 3 ] @ [ 4; 5; 6 ]
 [ 1 .. 10 ]
 |> List.fold (fun state x -> sprintf "%s %d" state x) "Numbers:"
 
+// While you could use System.String.Format, the typical way to format strings in F# is using sprintf, which allows for type
+// checking of arguments.
+
+sprintf "String: %s" "foo"
+
+sprintf "Integer: %i" 1
+
+sprintf "Decimal: %d" 1
+
+sprintf "Float: %f" 1.0
+
+sprintf "Any: %A" [ 1 .. 10 ]
+
 
 

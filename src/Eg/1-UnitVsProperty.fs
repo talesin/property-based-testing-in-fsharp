@@ -18,6 +18,7 @@ module ``1 Unit Tests vs Property Tests`` =
             let result = increment 2
             Assert.True(3 = result)
 
+        // The property attribute turns a function into a proprty test
         [<Property(Verbose=true)>]
         let ``The different between x and the expected result should be 1`` (x:int) =
             let result = increment x

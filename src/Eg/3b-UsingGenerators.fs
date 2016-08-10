@@ -7,8 +7,6 @@ open NUnit.Framework
 open FsCheck
 open FsCheck.NUnit
 
-// TODO move completed code to branch and leave behind stub
-
 // Another element of property based testing is the need to generate specifc data for your tests. Generators allow you
 // to do that for existing types but also your custom types
 module ``3 Using Generators`` =

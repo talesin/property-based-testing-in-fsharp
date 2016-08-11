@@ -21,32 +21,18 @@ namespace Examples
 
 		public override async Task Invoke(IOwinContext context)
 		{
-			try
-			{
-				var stopwatch = Stopwatch.StartNew();
+			var stopwatch = Stopwatch.StartNew();
 
-				await Next.Invoke(context);
+			await Next.Invoke(context);
 
-				LogRequest(context.Request.Path.Value, stopwatch.ElapsedMilliseconds, context.Response.StatusCode, context.Request.Uri.ToString(), context.Request.QueryString);
-			}
-			catch (Exception e)
-			{
-				log.Error("Exception invoking next owin middleware component", e);
-			}
+			LogRequest(context.Request.Path.Value, stopwatch.ElapsedMilliseconds, context.Response.StatusCode, context.Request.Uri.ToString(), context.Request.QueryString);
 		}
 
 
 		private void LogRequest(string metric, long responseTimeInMs, int statusCode, string url, QueryString queryString)
 		{
-			try
-			{
-				statsd.LogTiming($"{metric}.response_time", responseTimeInMs);
-				statsd.LogCount($"{metric}.status_code.{statusCode}", 1);
-			}
-			catch (Exception e)
-			{
-				log.Error("Exception logging to Statsd", e);
-			}
+			statsd.LogTiming($"{metric}.response_time", responseTimeInMs);
+			statsd.LogCount($"{metric}.status_code.{statusCode}", 1);
 
 			if (responseTimeInMs > 2000)
 			{

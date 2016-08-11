@@ -121,4 +121,4 @@ module ``99 Diamond Kata`` =
 
 
     [<Property(Arbitrary=[| typeof<Letter> |])>]
-    let ``Diamond 1 (FSharp)`` (ch:char) = diamondTest diamond
+    let ``Test Diamond`` (ch:char) = diamondTest diamond

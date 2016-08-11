@@ -19,7 +19,7 @@ module ``1 Unit Tests vs Property Tests`` =
         [<Test>]
         let ``The increment of 2 should be 3`` () =
             let result = increment 2
-            Assert.True(3 = result)
+            Assert.IsTrue(3 = result)
 
         // The property attribute turns a function into a proprty test.  Notice the argument to the test?
         // A generated value will be passed in there for each iteration.
@@ -41,7 +41,7 @@ module ``1 Unit Tests vs Property Tests`` =
         [<Test>]
         let ``Reversing a specific list should return that list in reverse`` () =
             let result = reverse [1; 2; 3; 4; 5]
-            Assert.True([5; 4; 3; 2; 1] = result)
+            Assert.IsTrue([5; 4; 3; 2; 1] = result)
 
         // We need to come up with something to test, ideally a `property` of the reverse function
         // that doesn't mean re-implementing the reverse function

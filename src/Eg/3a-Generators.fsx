@@ -1,5 +1,4 @@
-﻿#I "../../packages/FsCheck/lib/portable-net45+netcore45"
-#r "FsCheck.dll"
+﻿#load "Header.fsx"
 
 open FsCheck
 

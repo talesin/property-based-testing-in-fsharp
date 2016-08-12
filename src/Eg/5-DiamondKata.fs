@@ -1,9 +1,12 @@
 ﻿namespace Examples
 
-open NUnit.Framework
-
+#if NUNIT
 open FsCheck
 open FsCheck.NUnit
+#else
+open FsCheck
+open FsCheck.Xunit
+#endif
 
 // Print a diamond based on a letter, there the letter determines both the
 // content and size of the diamond.

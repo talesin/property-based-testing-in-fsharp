@@ -8,9 +8,14 @@ open System.Threading.Tasks
 open Microsoft.Owin
 open log4net
 
-open NUnit.Framework
+#if NUNIT
 open FsCheck
 open FsCheck.NUnit
+#else
+open FsCheck
+open FsCheck.Xunit
+#endif
+
 
 // We will be using an F# mocking framework called Foq
 open Foq

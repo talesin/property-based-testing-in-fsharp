@@ -359,11 +359,11 @@ Target "Release" (fun _ ->
     Branches.pushTag "" remote release.NugetVersion
 
     // release on github
-    createClient user pw
-    |> createDraft gitOwner gitName release.NugetVersion (release.SemVer.PreRelease <> None) release.Notes
-    // TODO: |> uploadFile "PATH_TO_FILE"
-    |> releaseDraft
-    |> Async.RunSynchronously
+//    createClient user pw
+//    |> createDraft gitOwner gitName release.NugetVersion (release.SemVer.PreRelease <> None) release.Notes
+//    // TODO: |> uploadFile "PATH_TO_FILE"
+//    |> releaseDraft
+//    |> Async.RunSynchronously
 )
 
 Target "BuildPackage" DoNothing
@@ -399,14 +399,14 @@ Target "All" DoNothing
 //"CleanDocs"
 //  ==> "GenerateHelpDebug"
 
-"GenerateHelpDebug"
-  ==> "KeepRunning"
+//"GenerateHelpDebug"
+//  ==> "KeepRunning"
 
-"ReleaseDocs"
-  ==> "Release"
+//"ReleaseDocs"
+//  ==> "Release"
 
-"BuildPackage"
-  ==> "PublishNuget"
-  ==> "Release"
+//"BuildPackage"
+//  ==> "PublishNuget"
+//  ==> "Release"
 
 RunTargetOrDefault "All"

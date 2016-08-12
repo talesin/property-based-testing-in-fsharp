@@ -14,3 +14,10 @@
 #r "nunit.framework.dll"
 #r "nunit.util.dll"
 #r "CSharpDomain.dll"
+#r "FsCheck.Xunit.dll"
+#r "xunit.abstractions.dll"
+#r "xunit.assert.dll"
+#r "xunit.core.dll"
+#r "xunit.execution.desktop.dll"
+
+#load "Helper.fs"

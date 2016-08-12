@@ -1,10 +1,15 @@
 ﻿namespace Examples
 
 // 'open' in F# is the same as 'using' in C#
-open NUnit.Framework
 
+#if NUNIT
 open FsCheck
 open FsCheck.NUnit
+#else
+open FsCheck
+open FsCheck.Xunit
+#endif
+
 
 // A module can be thought of as a static class in C#
 module ``1 Unit Tests vs Property Tests`` =
@@ -15,7 +20,7 @@ module ``1 Unit Tests vs Property Tests`` =
         // Function to test
         let increment = (+) 1
 
-        // Bog standard NUnit test
+        // Bog standard unit test
         [<Test>]
         let ``The increment of 2 should be 3`` () =
             let result = increment 2
@@ -45,11 +50,6 @@ module ``1 Unit Tests vs Property Tests`` =
 
         // We need to come up with something to test, ideally a `property` of the reverse function
         // that doesn't mean re-implementing the reverse function
-        [<Property(Verbose=true)>]
-        let ``What property of reverse should we test?`` (list:int list) =
-            ()
-
-        // TODO ANSWER
         [<Property(Verbose=true)>]
         let ``The reverse of the reverse of the list should equal the original`` (list:int list) =
             let doubleReversed = list |> reverse |> reverse

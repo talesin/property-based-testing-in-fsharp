@@ -9,4 +9,4 @@ Microsoft.Owin
 log4net
 StatsdCsharpClient
 xunit
-System.Runtime copy_local: true
+xunit.runner.visualstudio

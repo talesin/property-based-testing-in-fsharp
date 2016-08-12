@@ -8,6 +8,7 @@ open Fake.Git
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
 open Fake.UserInputHelper
+open Fake.Testing
 open System
 open System.IO
 #if MONO
@@ -150,6 +151,13 @@ Target "RunTests" (fun _ ->
             TimeOut = TimeSpan.FromMinutes 20.
             OutputFile = "TestResults.xml"
             Domain = NUnitDomainModel.NoDomainModel })
+
+    !! testAssemblies
+    |> xUnit2 (fun p ->
+        { p with
+            ToolPath = "packages/xunit.runner.console/tools/xunit.console.exe"
+            XmlOutputPath = Some "TestResults.xml"
+            HtmlOutputPath = Some "TestResults.html" })
 )
 
 #if MONO

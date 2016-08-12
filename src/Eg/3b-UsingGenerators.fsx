@@ -1,10 +1,7 @@
 ﻿#load "Header.fsx"
 #load "3b-UsingGenerators.fs"
 
-
-open NUnit.Framework
 open FsCheck
-open FsCheck.NUnit
 
 open Examples
 

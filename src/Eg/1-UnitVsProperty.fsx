@@ -1,10 +1,7 @@
 ﻿#load "Header.fsx"
 #load "1-UnitVsProperty.fs"
 
-
-open NUnit.Framework
 open FsCheck
-open FsCheck.NUnit
 
 open Examples
 open ``1 Unit Tests vs Property Tests``

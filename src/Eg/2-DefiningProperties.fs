@@ -2,10 +2,13 @@
 
 open System
 
-open NUnit.Framework
-
+#if NUNIT
 open FsCheck
 open FsCheck.NUnit
+#else
+open FsCheck
+open FsCheck.Xunit
+#endif
 
 // Now that we've tackled one property test, let's try a few more!
 module ``2 Defining Properties`` =

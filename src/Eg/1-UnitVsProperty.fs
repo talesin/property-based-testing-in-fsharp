@@ -1,10 +1,14 @@
 ﻿namespace Examples
 
 // 'open' in F# is the same as 'using' in C#
-open NUnit.Framework
 
+#if NUNIT
 open FsCheck
 open FsCheck.NUnit
+#else
+open FsCheck
+open FsCheck.Xunit
+#endif
 
 // A module can be thought of as a static class in C#
 module ``1 Unit Tests vs Property Tests`` =

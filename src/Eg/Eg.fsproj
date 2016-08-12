@@ -968,7 +968,7 @@
     <None Include="3b-UsingGenerators.fsx" />
     <Compile Include="4-TopDown.fs" />
     <None Include="4-TopDown.fsx" />
-    <Compile Include="99-DiamondKata.fs" />
+    <Compile Include="5-DiamondKata.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

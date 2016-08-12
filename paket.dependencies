@@ -1,6 +1,8 @@
 source https://api.nuget.org/v3/index.json
 source http://nuget.org/api/v2
 
+framework: net45
+
 github fsharp/FAKE modules/Octokit/Octokit.fsx
 nuget Octokit
 nuget FAKE
@@ -18,3 +20,4 @@ nuget StatsdCsharpClient
 nuget log4net
 nuget xunit
 nuget xunit.runner.console
+nuget System.Runtime = 4.0.0.0

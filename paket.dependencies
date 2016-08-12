@@ -1,8 +1,10 @@
 source https://api.nuget.org/v3/index.json
+source http://nuget.org/api/v2
 
 github fsharp/FAKE modules/Octokit/Octokit.fsx
+#nuget Ockokit
 nuget FAKE
-nuget FSharp.Core > 4.0.0.1 copy_local: true, redirects: force
+nuget FSharp.Core >= 4.0.0.1 copy_local: true, redirects: force
 nuget FSharp.Formatting
 nuget FsCheck.NUnit
 nuget FsCheck.Xunit
@@ -15,3 +17,4 @@ nuget Microsoft.Owin
 nuget StatsdCsharpClient
 nuget log4net
 nuget xunit
+nuget xunit.runner.console

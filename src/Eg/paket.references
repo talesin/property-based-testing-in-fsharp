@@ -9,3 +9,4 @@ Microsoft.Owin
 log4net
 StatsdCsharpClient
 xunit
+xunit.runner.visualstudio

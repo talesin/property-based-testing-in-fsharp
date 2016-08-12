@@ -18,3 +18,4 @@ nuget StatsdCsharpClient
 nuget log4net
 nuget xunit
 nuget xunit.runner.console
+nuget xunit.runner.visualstudio

@@ -189,7 +189,8 @@ NUGET
       xunit.abstractions (>= 2.0) - framework: dnxcore50
       xunit.extensibility.core (2.1) - framework: >= net45, dnx451, dnxcore50, monoandroid, monotouch, xamarinios, winv4.5, wpv8.0, wpav8.1
     xunit.runner.console (2.1)
+    xunit.runner.visualstudio (2.1)
 GITHUB
   remote: fsharp/FAKE
     modules/Octokit/Octokit.fsx (7faaaf53e4a8fbe04a4d2b4c1bfc5d09bd82eed6)
-      Octokit (>= 0.20)
+      Octokit

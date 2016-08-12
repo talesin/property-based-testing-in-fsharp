@@ -27,7 +27,7 @@ open FsCheck.NUnit
 //  B B 
 //   A
 
-module ``99 Diamond Kata`` =
+module ``5 Diamond Kata`` =
 
     let size (ch:char) = int ch - int 'A' + 1
 

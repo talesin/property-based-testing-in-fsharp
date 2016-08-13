@@ -8,6 +8,9 @@ open System.Threading.Tasks
 open Microsoft.Owin
 open log4net
 
+// We will be using an F# mocking framework called Foq
+open Foq
+
 #if NUNIT
 open FsCheck
 open FsCheck.NUnit
@@ -17,8 +20,6 @@ open FsCheck.Xunit
 #endif
 
 
-// We will be using an F# mocking framework called Foq
-open Foq
 
 
 type StatsdMiddlewareGenerators () =
@@ -75,15 +76,23 @@ module ``4 Top Down`` =
     [<Property(Verbose=true, MaxTest=10, Arbitrary=[|typeof<StatsdMiddlewareGenerators>|])>]
     let ``Test Owin Middleware component`` (owinMiddleware:OwinMiddleware) (owinContext:IOwinContext) =
         // The mock() function simple returns a default mock of the required type
-        let statsd = mock()
-        let log = mock()
+        //let statsd = mock()
+        //let log = mock()
 
-        let statsdmw = SampleMiddleware (owinMiddleware, statsd, log) 
+        let timing = ResizeArray<string * int64> ()
+        let count = ResizeArray<string * int> ()
+        let error = ResizeArray<string * exn> ()
+        let warn = ResizeArray<string> ()
+
+        //let statsdmw = SampleMiddleware (owinMiddleware, statsd, log) 
+        let statsdmw = SampleMiddleware (   owinMiddleware,
+                                            (fun s l -> timing.Add (s, l)),
+                                            (fun s i -> count.Add (s, i)),
+                                            (fun s e -> error.Add(s, e)),
+                                            (fun s -> warn.Add(s)))
 
         // Uncomment to invoke code
-        //statsdmw.Invoke (owinContext) |> Async.AwaitTask |> Async.RunSynchronously
+        statsdmw.Invoke (owinContext) |> Async.AwaitTask |> Async.RunSynchronously
 
-        true
-
-
+        (owinMiddleware <> null) ==> ("There should be no errors logged when owinMiddleware is not null" @| (error.Count = 0))
 

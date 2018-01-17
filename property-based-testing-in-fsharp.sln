@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "Eg", "src\Eg\Eg.fsproj", "{0A9C339E-0422-4226-8DF1-F0CC928FF9E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpDomain", "src\CSharpDomain\CSharpDomain.csproj", "{7F08B109-3AA6-4C28-B331-86B17E15A2ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A9C339E-0422-4226-8DF1-F0CC928FF9E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A9C339E-0422-4226-8DF1-F0CC928FF9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A9C339E-0422-4226-8DF1-F0CC928FF9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A9C339E-0422-4226-8DF1-F0CC928FF9E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F08B109-3AA6-4C28-B331-86B17E15A2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F08B109-3AA6-4C28-B331-86B17E15A2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F08B109-3AA6-4C28-B331-86B17E15A2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F08B109-3AA6-4C28-B331-86B17E15A2ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

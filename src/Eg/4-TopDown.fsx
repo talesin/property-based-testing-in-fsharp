@@ -2,9 +2,7 @@
 #load "4-TopDown.fs"
 
 
-open NUnit.Framework
 open FsCheck
-open FsCheck.NUnit
 
 open Examples
 

@@ -2,14 +2,14 @@
 #load "4-TopDown.fs"
 
 
-open NUnit.Framework
-open FsCheck
-open FsCheck.NUnit
+// open NUnit.Framework
+// open FsCheck
+// open FsCheck.NUnit
 
-open Examples
+// open Examples
 
-open ``4 Top Down``
+// open ``4 Top Down``
 
-Arb.registerByType typeof<StatsdMiddlewareGenerators>
-//Check.Quick ``Test Owin Middleware component``
-Check.Verbose ``Test Owin Middleware component``
+// Arb.registerByType typeof<StatsdMiddlewareGenerators>
+// //Check.Quick ``Test Owin Middleware component``
+// Check.Verbose ``Test Owin Middleware component``

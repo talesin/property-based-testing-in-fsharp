@@ -1,14 +1,8 @@
 ﻿namespace Examples
 
 open System
-
-#if NUNIT
-open FsCheck
-open FsCheck.NUnit
-#else
 open FsCheck
 open FsCheck.Xunit
-#endif
 
 // Another element of property based testing is the need to generate specifc data for your tests. Generators allow you
 // to do that for existing types but also your custom types

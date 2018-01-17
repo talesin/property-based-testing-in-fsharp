@@ -1,14 +1,8 @@
 ﻿namespace Examples
 
 // 'open' in F# is the same as 'using' in C#
-
-#if NUNIT
-open FsCheck
-open FsCheck.NUnit
-#else
-open FsCheck
+open Xunit
 open FsCheck.Xunit
-#endif
 
 
 // A module can be thought of as a static class in C#
@@ -21,10 +15,10 @@ module ``1 Unit Tests vs Property Tests`` =
         let increment = (+) 1
 
         // Bog standard unit test
-        [<Test>]
+        [<Fact>]
         let ``The increment of 2 should be 3`` () =
             let result = increment 2
-            Assert.IsTrue(3 = result)
+            Assert.True(3 = result)
 
         // The property attribute turns a function into a proprty test.  Notice the argument to the test?
         // A generated value will be passed in there for each iteration.
@@ -43,10 +37,10 @@ module ``1 Unit Tests vs Property Tests`` =
         let reverse = List.rev
 
         // Again, your bog standard unit test - testing the one specific case
-        [<Test>]
+        [<Fact>]
         let ``Reversing a specific list should return that list in reverse`` () =
             let result = reverse [1; 2; 3; 4; 5]
-            Assert.IsTrue([5; 4; 3; 2; 1] = result)
+            Assert.True([5; 4; 3; 2; 1] = result)
 
         // We need to come up with something to test, ideally a `property` of the reverse function
         // that doesn't mean re-implementing the reverse function

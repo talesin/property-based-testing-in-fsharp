@@ -2,7 +2,6 @@
 
 // 'open' in F# is the same as 'using' in C#
 open Xunit
-open FsCheck
 open FsCheck.Xunit
 
 // A module can be thought of as a static class in C#

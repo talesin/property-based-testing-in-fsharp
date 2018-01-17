@@ -1,7 +1,6 @@
 ﻿namespace Examples
 
 open System
-
 open FsCheck
 open FsCheck.Xunit
 

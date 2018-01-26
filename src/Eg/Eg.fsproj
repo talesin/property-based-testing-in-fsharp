@@ -15,8 +15,8 @@
     <None Include="3a-Generators.fsx" />
     <Compile Include="3b-UsingGenerators.fs" />
     <None Include="3b-UsingGenerators.fsx" />
-    <Compile Include="4-TopDown.fs" />
-    <None Include="4-TopDown.fsx" />
+    <Compile Include="4-CSharp.fs" />
+    <None Include="4-CSharp.fsx" />
     <Compile Include="5-DiamondKata.fs" />
     <None Include="5-DiamondKata.fsx" />
     <PackageReference Include="FsCheck" Version="2.10.6" />
@@ -25,5 +25,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSharpDomain\CSharpDomain.csproj" />
   </ItemGroup>
 </Project>

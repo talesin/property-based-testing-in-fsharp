@@ -9,7 +9,7 @@ open FsCheck.Xunit
 module ``3 Using Generators`` =
 
     // F# helpfully turns the out parameters into tuple return values.
-    // Here we use pattern matching on the output to either return the converted interger or a default of 0
+    // Here we use pattern matching on the output to either return the converted integer or a default of 0
     let parseInt s =
         match Int32.TryParse s with
         | (true, x)  -> x

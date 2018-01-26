@@ -22,7 +22,7 @@ module ``1 Unit Tests vs Property Tests`` =
         // The property attribute turns a function into a proprty test.  Notice the argument to the test?
         // A generated value will be passed in there for each iteration.
         [<Property(Verbose=true)>]
-        let ``The different between x and the expected result should be 1`` (x:int) =
+        let ``The difference between x and the expected result should be 1`` (x:int) =
             let result = increment x
 
             // For a property test you can either return value or a `Property` - we'll look at that shortly

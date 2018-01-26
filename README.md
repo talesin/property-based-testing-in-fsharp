@@ -5,7 +5,8 @@
 - [2-DefiningProperties.fs](src/Eg/2-DefiningProperties.fs)
 - [3a-Generators.fsx](srv/Eg/2-DefiningProperties.fs)
 - [3b-UsingGenerators.fs](src/Eg/3b-UsingGenerators.fs)
-- [4-TopDown.fs](src/Eg/4-TopDown.fs)
+- [4-CSharp.fs](src/Eg/4-CSharp.fs)
+- [5-DiamondKata.fs](src/Eg/4-DiamondKata.fs)
 
 
 Resources
@@ -13,4 +14,3 @@ Resources
 	- https://fsharpforfunandprofit.com/posts/property-based-testing/
 	- https://fsharpforfunandprofit.com/posts/property-based-testing-2/
 - FsCheck: https://fscheck.github.io/FsCheck/
-- Foq: https://foq.codeplex.com/

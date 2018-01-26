@@ -63,7 +63,7 @@ module ``5 Diamond Kata`` =
 
         let lines = result.Split [|'\n'|]
 
-        printfn "%c (%i / %i):\n%s" ch lines.Length n result
+        // printfn "%c (%i / %i):\n%s" ch lines.Length n result
 
         "Diamond must not be empty" @| (
             result <> null && result.Length > 0)

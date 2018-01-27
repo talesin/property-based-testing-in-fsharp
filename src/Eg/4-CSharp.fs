@@ -32,7 +32,9 @@ module ``4 CSharp`` =
     let produceWidgets fn xs = (widgetProducer xs).ProduceWidgets (fun x -> fn x) |> Seq.toList
 
 
-    type Widgets = class end
+    type Widgets =
+        static member Widgets () =
+            Gen.constant () |> Arb.fromGen
 
     [<Property(Verbose=true, Arbitrary=[| typeof<Widgets> |])>]
     let ``WidgetProducer produces and filters widgets`` (widgets: IWidget list) =

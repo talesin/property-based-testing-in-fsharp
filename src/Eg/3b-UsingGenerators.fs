@@ -32,7 +32,13 @@ module ``3 Using Generators`` =
 
     // We need to generate version numbers where we can specifically test the numerical
     // sorting, such as comparing 1.3.5 to 1.20.0 and expect it to be ordered correctly.
-    type Versions = class end
+    type Versions =
+        static member Versions () =
+            Gen.constant () |> Arb.fromGen
+
+    type NumericStringList =
+        static member NumericStringList () =
+            Gen.constant () |> Arb.fromGen
 
     [<Property(Verbose=true, Arbitrary=[| typeof<Versions> |])>]
     let ``Sort version numbers`` (list:string list) =
@@ -42,6 +48,10 @@ module ``3 Using Generators`` =
 
         false
 
+    // test oracle - comparing to an existing implementation
+    [<Property(Verbose=true, Arbitrary=[| typeof<NumericStringList> |])>]
+    let ``The sort of major version should be the same as a numerical sort`` (list:string list) =
+        false
 
 
 

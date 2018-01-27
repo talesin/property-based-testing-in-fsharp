@@ -32,7 +32,7 @@ module ``2 Defining Properties`` =
 
             .&.
 
-            // invariant property - but we want to try and avoid reimplementing sorting code
+            // verification property - in this case being ordered is relatively easy to verify
             "Each element in a sorted list should be greater than or equal to the last" @| (
                 sorted
                 |> List.pairwise
@@ -40,7 +40,7 @@ module ``2 Defining Properties`` =
 
             .&.
 
-            // invariant property
+            // verification property
             "The smallest element in the list should be first" @| (
                 let head = list @ [Int32.MinValue] |> sort |> List.head
 
@@ -48,7 +48,7 @@ module ``2 Defining Properties`` =
 
             .&.
 
-            // invariant property
+            // verification property
             "The largest element in the list should be last" @| (
                 let last = Int32.MaxValue :: list |> sort |> List.last
 

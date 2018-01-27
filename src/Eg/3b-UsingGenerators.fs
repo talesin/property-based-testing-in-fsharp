@@ -35,10 +35,13 @@ module ``3 Using Generators`` =
     // sorting, such as comparing 1.3.5 to 1.20.0 and expect it to be ordered correctly.
     type Versions =
         static member Versions () =
-            Gen.choose (0, 999)
-            |> Gen.three
-            |> Gen.map (Version >> string)
-            |> Arb.fromGen
+            gen {
+                let! n = Gen.choose(0, 10)
+                return! Gen.choose (0, 99)
+                    |> Gen.three
+                    |> Gen.map (Version >> string)
+                    |> Gen.listOfLength n
+            } |> Arb.fromGen
 
     type NumericStringList =
         static member NumericStringList () =
@@ -57,12 +60,6 @@ module ``3 Using Generators`` =
 
         .&.
 
-        // idempotent property
-        "Sorting a list twice should be the same as sorting it once" @| (
-            sorted = sort sorted)
-
-        .&.
-
         // invariant property
         "Each element in the original list must exist in the sorted" @| (
             list
@@ -70,7 +67,13 @@ module ``3 Using Generators`` =
 
         .&.
 
-        // invariant property
+        // idempotent property
+        "Sorting a list twice should be the same as sorting it once" @| (
+            sorted = sort sorted)
+
+        .&.
+
+        // verification property
         "The smallest element in the list should be first" @| (
             let head = list @ ["0.0.0"] |> sort |> List.head
 
@@ -78,11 +81,30 @@ module ``3 Using Generators`` =
 
         .&.
 
-        // invariant property
+        // verification property
         "The largest element in the list should be last" @| (
             let last = "999.999.999" :: list |> sort |> List.last
 
             last = "999.999.999")
+
+        .&.
+
+        // verification property
+        "The second largest element in the list should not be last" @| (
+            let last = "999.999.999" :: list |> sort |> List.last
+
+            last = "999.999.999")
+
+        .&.
+
+        // verification property with filter
+        (list |> List.exists (fun x -> not <| x.StartsWith "9") ==>
+            "The largest element in the list should be last - take 2" @| (
+                let newlist = "9.999.999" :: ("899.999.999" :: list) |> sort
+
+                // printfn "%A" newlist
+
+                newlist |> List.last = "899.999.999"))
 
 
     // test oracle - comparing to an existing implementation

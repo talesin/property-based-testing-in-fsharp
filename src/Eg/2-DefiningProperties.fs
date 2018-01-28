@@ -19,7 +19,9 @@ module ``2 Defining Properties`` =
         let ``List Sort`` (list:int list) =
             let sorted = sort list
 
-            false 
+            // invariant property - this type of property will not be changed by sort
+            "A sorted list should contain the same number of elements as the original" @| (
+                List.length list = List.length sorted)
 
 
     // Let's go back to the reverse function and see if we can apply some of what we learned above

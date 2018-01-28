@@ -30,6 +30,14 @@ module ``2 Defining Properties`` =
             "Sorting a list twice should be the same as sorting it once" @| (
                 sorted = sort sorted)
 
+            .&.
+
+            // verification property - in this case being ordered is relatively easy to verify
+            "Each element in a sorted list should be greater than or equal to the last" @| (
+                sorted
+                |> List.pairwise
+                |> List.forall (fun (a, b) -> b >= a))
+
 
     // Let's go back to the reverse function and see if we can apply some of what we learned above
     module ``2-2 Reversing a list`` =

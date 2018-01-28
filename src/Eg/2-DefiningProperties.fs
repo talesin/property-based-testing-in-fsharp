@@ -23,6 +23,13 @@ module ``2 Defining Properties`` =
             "A sorted list should contain the same number of elements as the original" @| (
                 List.length list = List.length sorted)
 
+            // You can `AND` or `OR` properties in a single test using .&. or .|. 
+            .&.
+
+            // idempotent property - repeating the function shouldn't change the data
+            "Sorting a list twice should be the same as sorting it once" @| (
+                sorted = sort sorted)
+
 
     // Let's go back to the reverse function and see if we can apply some of what we learned above
     module ``2-2 Reversing a list`` =

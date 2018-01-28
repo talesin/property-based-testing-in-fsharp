@@ -54,6 +54,13 @@ module ``2 Defining Properties`` =
 
                 last = Int32.MaxValue)
 
+            .&.
+
+            // invariant property
+            "Each element in the original list must exist in the sorted" @| (
+                list
+                |> List.forall (fun x -> sorted |> List.contains x))
+
 
     // Let's go back to the reverse function and see if we can apply some of what we learned above
     module ``2-2 Reversing a list`` =

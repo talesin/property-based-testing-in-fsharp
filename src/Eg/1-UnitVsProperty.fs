@@ -44,5 +44,7 @@ module ``1 Unit Tests vs Property Tests`` =
         // We need to come up with something to test, ideally a `property` of the reverse function
         // that doesn't mean re-implementing the reverse function
         [<Property(Verbose=true)>]
-        let ``What property of reverse should we test?`` (list:int list) =
-            false
+        let ``The reverse of the reverse of the list should equal the original`` (list:int list) =
+            let doubleReversed = list |> reverse |> reverse
+
+            doubleReversed = list

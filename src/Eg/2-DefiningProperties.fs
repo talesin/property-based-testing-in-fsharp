@@ -38,6 +38,22 @@ module ``2 Defining Properties`` =
                 |> List.pairwise
                 |> List.forall (fun (a, b) -> b >= a))
 
+            .&.
+
+            // verification property
+            "The smallest element in the list should be first" @| (
+                let head = list @ [Int32.MinValue] |> sort |> List.head
+
+                head = Int32.MinValue)
+
+            .&.
+
+            // verification property
+            "The largest element in the list should be last" @| (
+                let last = Int32.MaxValue :: list |> sort |> List.last
+
+                last = Int32.MaxValue)
+
 
     // Let's go back to the reverse function and see if we can apply some of what we learned above
     module ``2-2 Reversing a list`` =

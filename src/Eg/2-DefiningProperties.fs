@@ -11,8 +11,8 @@ module ``2 Defining Properties`` =
 
         // Let's try and come up with some properties iteratively
         //let sort list = []
-        let sort list = list
-        //let sort (list:int list) = List.replicate list.Length 1
+        // let sort list = list
+        let sort (list:int list) = List.replicate list.Length 1
         //let sort = List.sort
 
         [<Property(Verbose=true)>]

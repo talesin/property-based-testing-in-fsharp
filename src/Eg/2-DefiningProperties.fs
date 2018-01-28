@@ -10,8 +10,8 @@ module ``2 Defining Properties`` =
     module ``2-1 Sorting a list`` =
 
         // Let's try and come up with some properties iteratively
-        let sort list = []
-        //let sort list = list
+        //let sort list = []
+        let sort list = list
         //let sort (list:int list) = List.replicate list.Length 1
         //let sort = List.sort
 

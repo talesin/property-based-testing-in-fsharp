@@ -67,8 +67,8 @@ module ``2 Defining Properties`` =
         
         // Cycle through the implementations of `reverse` if it helps...
         // let reverse list = []
-        let reverse list = list
-        //let reverse (list:int list) = List.replicate list.Length 1
+        // let reverse list = list
+        let reverse (list:int list) = List.replicate list.Length 1
         //let reverse = List.rev
 
         [<Property(Verbose=true)>]

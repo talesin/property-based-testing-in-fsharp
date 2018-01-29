@@ -57,4 +57,11 @@ module ``4 CSharp`` =
         "When allowing all widgets through then there should be no impact to the length of the list" @| (
             let result = widgets |> produceAll
             result.Length = widgets.Length
-        )        
+        )
+        
+        .&.
+
+        "When allowing all widgets through then there should be no impact to the contents of the list" @| (
+            let result = widgets |> produceAll
+            (result, widgets) ||> List.forall2 isEqual
+        )

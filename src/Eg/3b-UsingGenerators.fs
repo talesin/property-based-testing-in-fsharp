@@ -44,7 +44,9 @@ module ``3 Using Generators`` =
 
     type NumericStringList =
         static member NumericStringList () =
-            Gen.constant () |> Arb.fromGen
+            Gen.oneof [ Gen.choose (0, 9); Gen.choose (0, 99); Gen.choose (0, 999) ]
+            |> Gen.map string
+            |> Arb.fromGen  
 
     [<Property(Verbose=true, Arbitrary=[| typeof<Versions> |])>]
     let ``Sort version numbers`` (list:string list) =
@@ -105,6 +107,8 @@ module ``3 Using Generators`` =
     let ``The sort of major version should be the same as a numerical sort`` (list:string list) =
         let sorted = list |> List.map (sprintf "%s.0.0") |> sort
         let numbers = list |> List.sortBy parseInt |> List.map (sprintf "%s.0.0")
+
+        // printfn "%A" sorted
 
         sorted = numbers
 

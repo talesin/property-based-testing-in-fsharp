@@ -24,7 +24,7 @@ module ``3 Using Generators`` =
            ver.Split '.'
            |> Array.map parseInt
            |> function
-           | [| x; y; z; |] -> (x, y, x)
+           | [| x; y; z; |] -> (x, y, x) // <-- anyone notice the bug?
            | _              -> (0, 0, 0)
 
        versions

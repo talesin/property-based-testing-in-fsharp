@@ -31,10 +31,18 @@ module ``4 CSharp`` =
     // And finally a function that we can use in our tests
     let produceWidgets fn xs = (widgetProducer xs).ProduceWidgets (fun x -> fn x) |> Seq.toList
 
+    // We need to be able to generate an IWidget and this time we'll use the `gen` computation expression 
+    let genWidget = gen {
+        let! name = Arb.generate<string>
+        let! size = Gen.choose(0, 10) // but have a boundary for size to make testing easier
+        return widget name size
+    }
 
     type Widgets =
         static member Widgets () =
-            Gen.constant () |> Arb.fromGen
+            genWidget
+            |> Gen.listOf
+            |> Arb.fromGen
 
     [<Property(Verbose=true, Arbitrary=[| typeof<Widgets> |])>]
     let ``WidgetProducer produces and filters widgets`` (widgets: IWidget list) =

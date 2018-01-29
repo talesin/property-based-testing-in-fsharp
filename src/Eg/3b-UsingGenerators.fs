@@ -34,7 +34,7 @@ module ``3 Using Generators`` =
     // sorting, such as comparing 1.3.5 to 1.20.0 and expect it to be ordered correctly.
     type Versions =
         static member Versions () =
-            Gen.choose (0, 999)
+            Gen.choose (0, 99)
             |> Gen.three
             |> Gen.map (Version >> string)
             |> Arb.fromGen
@@ -73,7 +73,7 @@ module ``3 Using Generators`` =
             let newlist = list @ ["0.0.0"] |> sort
             let head = newlist |> List.head
 
-            if head <> "0.0.0" then printfn "%A" newlist
+            // if head <> "0.0.0" then printfn "%A" newlist
 
             head = "0.0.0")
 

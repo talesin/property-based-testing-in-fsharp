@@ -47,7 +47,7 @@ module ``3 Using Generators`` =
     let ``Sort version numbers`` (list:string list) =
         let sorted = sort list
 
-        // printfn "%A" sorted
+        printfn "%A" sorted
 
         // invariant property
         "A sorted list should contain the same number of elements as the original" @| (

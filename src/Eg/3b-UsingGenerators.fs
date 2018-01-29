@@ -53,6 +53,14 @@ module ``3 Using Generators`` =
         "A sorted list should contain the same number of elements as the original" @| (
             List.length list = List.length sorted)
 
+        .&.
+
+        // invariant property
+        "Each element in the original list must exist in the sorted" @| (
+            list
+            |> List.forall (fun x -> sorted |> List.contains x))
+            
+
     // test oracle - comparing to an existing implementation
     [<Property(Verbose=true, Arbitrary=[| typeof<NumericStringList> |])>]
     let ``The sort of major version should be the same as a numerical sort`` (list:string list) =

@@ -79,4 +79,14 @@ module ``2 Defining Properties`` =
             "The reverse of the reverse of the list should equal the original" @| (
                 doubleReversed = list)
 
+            .&.
+
+            // communicative property - prepending a value then reversing the list should be the same as
+            // applying reverse then appending the value
+            "Prepended value then reversed should be the same as reversed and appended" @| (
+                let prepended = x :: list |> reverse
+                let appended = (list |> reverse) @ [x]
+
+                prepended = appended
+            )
 

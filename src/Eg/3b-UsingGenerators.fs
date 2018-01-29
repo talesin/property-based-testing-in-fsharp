@@ -103,8 +103,10 @@ module ``3 Using Generators`` =
     // test oracle - comparing to an existing implementation
     [<Property(Verbose=true, Arbitrary=[| typeof<NumericStringList> |])>]
     let ``The sort of major version should be the same as a numerical sort`` (list:string list) =
-        false
+        let sorted = list |> List.map (sprintf "%s.0.0") |> sort
+        let numbers = list |> List.sortBy parseInt |> List.map (sprintf "%s.0.0")
 
+        sorted = numbers
 
 
 

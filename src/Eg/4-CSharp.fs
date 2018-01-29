@@ -112,3 +112,12 @@ module ``4 CSharp`` =
             let result2 = (valid :: widgets) |> produceSome
             (result1.Length+1) = result2.Length && result2.Head |> isEqual valid
         )
+
+        .&.
+
+        "A valid widget at the tail should be kept" @| (
+            let result1 = widgets |> produceSome
+            let result2 = (widgets @ [valid]) |> produceSome
+            (result1.Length+1) = result2.Length && (result2 |> List.last) |> isEqual valid
+        )
+        

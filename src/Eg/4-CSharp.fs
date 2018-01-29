@@ -53,5 +53,8 @@ module ``4 CSharp`` =
         let isEqual (w1:IWidget) (w2:IWidget) = w1.Name = w2.Name && w1.Size = w2.Size
         let invalid = widget "invalid" -1
         let valid = widget "valid" 5
-        
-        false
+
+        "When allowing all widgets through then there should be no impact to the length of the list" @| (
+            let result = widgets |> produceAll
+            result.Length = widgets.Length
+        )        

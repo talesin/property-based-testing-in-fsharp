@@ -47,7 +47,7 @@ module ``3 Using Generators`` =
     let ``Sort version numbers`` (list:string list) =
         let sorted = sort list
 
-        printfn "%A" sorted
+        // printfn "%A" sorted
 
         // invariant property
         "A sorted list should contain the same number of elements as the original" @| (
@@ -81,6 +81,17 @@ module ``3 Using Generators`` =
             let last = "999.999.999" :: list |> sort |> List.last
 
             last = "999.999.999")
+
+        .&.
+
+        // verification property with filter
+        (list |> List.forall (fun x -> not <| x.StartsWith "9") ==>
+            "The largest element in the list should be last - take 2" @| (
+                let newlist = "9.999.999" :: ("899.999.999" :: list) |> sort
+
+                printfn "%A" newlist
+
+                newlist |> List.last = "899.999.999"))
 
 
     // test oracle - comparing to an existing implementation

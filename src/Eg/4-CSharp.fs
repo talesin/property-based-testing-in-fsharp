@@ -72,3 +72,11 @@ module ``4 CSharp`` =
            let result = widgets |> produceNone
            result.Length = 0
         )
+
+        .&.
+
+        "A second pass through the producer should not impact the length of list" @| (
+            let result1 = widgets |> produceSome
+            let result2 = result1 |> produceSome
+            result1.Length = result2.Length
+        )

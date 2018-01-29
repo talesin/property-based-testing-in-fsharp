@@ -59,7 +59,13 @@ module ``3 Using Generators`` =
         "Each element in the original list must exist in the sorted" @| (
             list
             |> List.forall (fun x -> sorted |> List.contains x))
-            
+
+        .&.
+
+        // idempotent property
+        "Sorting a list twice should be the same as sorting it once" @| (
+            sorted = sort sorted)
+
 
     // test oracle - comparing to an existing implementation
     [<Property(Verbose=true, Arbitrary=[| typeof<NumericStringList> |])>]

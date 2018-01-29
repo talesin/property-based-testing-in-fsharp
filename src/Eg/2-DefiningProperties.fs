@@ -75,6 +75,8 @@ module ``2 Defining Properties`` =
         let ``Reversing a list property test`` (list:int list) (x:int) =
             let doubleReversed = list |> reverse |> reverse
 
-            false
+            // inverse property - useful for for testing serialize/deserialize style of functions
+            "The reverse of the reverse of the list should equal the original" @| (
+                doubleReversed = list)
 
 

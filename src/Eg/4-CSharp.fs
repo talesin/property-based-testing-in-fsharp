@@ -46,4 +46,12 @@ module ``4 CSharp`` =
 
     [<Property(Verbose=true, Arbitrary=[| typeof<Widgets> |])>]
     let ``WidgetProducer produces and filters widgets`` (widgets: IWidget list) =
+        // lets create a few helpers
+        let produceAll = produceWidgets (fun _ -> true)
+        let produceNone = produceWidgets (fun _ -> false)
+        let produceSome = produceWidgets (fun x -> x.Size > 3 && x.Size < 9)
+        let isEqual (w1:IWidget) (w2:IWidget) = w1.Name = w2.Name && w1.Size = w2.Size
+        let invalid = widget "invalid" -1
+        let valid = widget "valid" 5
+        
         false

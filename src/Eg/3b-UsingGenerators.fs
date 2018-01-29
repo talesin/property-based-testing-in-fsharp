@@ -47,7 +47,7 @@ module ``3 Using Generators`` =
     let ``Sort version numbers`` (list:string list) =
         let sorted = sort list
 
-        //printfn "%A" sorted
+        // printfn "%A" sorted
 
         // invariant property
         "A sorted list should contain the same number of elements as the original" @| (
@@ -65,6 +65,22 @@ module ``3 Using Generators`` =
         // idempotent property
         "Sorting a list twice should be the same as sorting it once" @| (
             sorted = sort sorted)
+
+        .&.
+
+        // verification property
+        "The smallest element in the list should be first" @| (
+            let head = list @ ["0.0.0"] |> sort |> List.head
+
+            head = "0.0.0")
+
+        .&.
+
+        // verification property
+        "The largest element in the list should be last" @| (
+            let last = "999.999.999" :: list |> sort |> List.last
+
+            last = "999.999.999")
 
 
     // test oracle - comparing to an existing implementation

@@ -34,7 +34,10 @@ module ``3 Using Generators`` =
     // sorting, such as comparing 1.3.5 to 1.20.0 and expect it to be ordered correctly.
     type Versions =
         static member Versions () =
-            Gen.constant () |> Arb.fromGen
+            Gen.choose (0, 999)
+            |> Gen.three
+            |> Gen.map (Version >> string)
+            |> Arb.fromGen
 
     type NumericStringList =
         static member NumericStringList () =

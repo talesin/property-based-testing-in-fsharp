@@ -15,20 +15,20 @@ module ``3 Using Generators`` =
         | (true, x)  -> x
         | (false, _) -> 0
 
-    let sort = List.sort
+    // let sort = List.sort
 
-//    let sort versions =
-//        // Another example of pattern matching, this time using the `function` keyword which is shortcut
-//        // to using `match` with a single argument
-//        let versionToTuple (ver:string) =
-//            ver.Split '.'
-//            |> Array.map parseInt
-//            |> function
-//            | [| x; y; z; |] -> (x, y, x)
-//            | _              -> (0, 0, 0)
-//
-//        versions
-//        |> List.sortBy versionToTuple
+    let sort versions =
+       // Another example of pattern matching, this time using the `function` keyword which is shortcut
+       // to using `match` with a single argument
+       let versionToTuple (ver:string) =
+           ver.Split '.'
+           |> Array.map parseInt
+           |> function
+           | [| x; y; z; |] -> (x, y, x)
+           | _              -> (0, 0, 0)
+
+       versions
+       |> List.sortBy versionToTuple
 
     // We need to generate version numbers where we can specifically test the numerical
     // sorting, such as comparing 1.3.5 to 1.20.0 and expect it to be ordered correctly.
@@ -70,7 +70,10 @@ module ``3 Using Generators`` =
 
         // verification property
         "The smallest element in the list should be first" @| (
-            let head = list @ ["0.0.0"] |> sort |> List.head
+            let newlist = list @ ["0.0.0"] |> sort
+            let head = newlist |> List.head
+
+            if head <> "0.0.0" then printfn "%A" newlist
 
             head = "0.0.0")
 
@@ -89,7 +92,7 @@ module ``3 Using Generators`` =
             "The largest element in the list should be last - take 2" @| (
                 let newlist = "9.999.999" :: ("899.999.999" :: list) |> sort
 
-                printfn "%A" newlist
+                // printfn "%A" newlist
 
                 newlist |> List.last = "899.999.999"))
 

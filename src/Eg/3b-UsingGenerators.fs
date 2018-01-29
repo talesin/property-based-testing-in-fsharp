@@ -49,7 +49,9 @@ module ``3 Using Generators`` =
 
         //printfn "%A" sorted
 
-        false
+        // invariant property
+        "A sorted list should contain the same number of elements as the original" @| (
+            List.length list = List.length sorted)
 
     // test oracle - comparing to an existing implementation
     [<Property(Verbose=true, Arbitrary=[| typeof<NumericStringList> |])>]

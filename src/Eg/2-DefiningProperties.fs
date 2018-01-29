@@ -66,8 +66,8 @@ module ``2 Defining Properties`` =
     module ``2-2 Reversing a list`` =
         
         // Cycle through the implementations of `reverse` if it helps...
-        let reverse list = []
-        //let reverse list = list
+        // let reverse list = []
+        let reverse list = list
         //let reverse (list:int list) = List.replicate list.Length 1
         //let reverse = List.rev
 

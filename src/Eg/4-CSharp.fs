@@ -88,3 +88,11 @@ module ``4 CSharp`` =
             let result2 = result1 |> produceSome
             (result1, result2) ||> List.forall2 isEqual
         )
+
+        .&.
+
+        "An invalid widget at the head should be removed" @| (
+            let result1 = widgets |> produceSome
+            let result2 = (invalid :: widgets) |> produceSome
+            result1.Length = result2.Length && (result1, result2) ||> List.forall2 isEqual
+        )

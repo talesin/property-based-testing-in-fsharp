@@ -80,3 +80,11 @@ module ``4 CSharp`` =
             let result2 = result1 |> produceSome
             result1.Length = result2.Length
         )
+
+        .&.
+
+        "A second pass through the producer should not impact the contents of list" @| (
+            let result1 = widgets |> produceSome
+            let result2 = result1 |> produceSome
+            (result1, result2) ||> List.forall2 isEqual
+        )
